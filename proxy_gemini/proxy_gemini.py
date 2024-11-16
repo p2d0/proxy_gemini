@@ -86,7 +86,7 @@ class ProxyGemini(CustomLLM):
         response = requests.post(url, headers=headers, json=data, proxies=proxies)
 
         if response.status_code != 200:
-            raise Exception(f"Request failed with status {response.status_code}")
+            raise Exception(f"Request failed with status {response.status_code}: {response.text}")
 
         response = requests.post(
             url, headers=headers, data=json.dumps(data), proxies=proxies
